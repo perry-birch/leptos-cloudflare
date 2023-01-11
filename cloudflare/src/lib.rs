@@ -1,11 +1,6 @@
-// mod components;
-// use app::counter::{ Counter, CounterProps };
 use app::*;
 use leptos::*;
-// #[cfg(feature = "ssr")]
 use worker::*;
-// #[cfg(feature = "ssr")]
-// mod server;
 use futures::StreamExt;
 
 mod file_details;
@@ -25,16 +20,7 @@ fn log_request(req: &Request) {
 pub async fn main(req: Request, env: worker::Env, _ctx: worker::Context) -> Result<Response> {
     log_request(&req);
 
-    let mut path = req.path();
-    // Get the rendered html from leptos
-    // let _html = if path == "/" {
-    //     path = "/index.html".to_owned();
-    //     let html = leptos_dom::render_to_string(|cx| view! { cx,  <Counter initial_value=1 step=3 /> });
-    //     console_log!("HTML:\n\n{}\n\n", html);
-    //     html
-    // } else {
-    //     "".to_owned()
-    // };
+    let path = req.path();
     if path == "/" {
         let pkg_path = "/client";
         let head = format!(
@@ -59,7 +45,6 @@ pub async fn main(req: Request, env: worker::Env, _ctx: worker::Context) -> Resu
                 ))
                 .chain(futures::stream::once(async { tail.to_string() }))
                 .inspect(|html| println!("{html}"))
-                // .map(|html| Ok(web::Bytes::from(html)) as Result<web::Bytes>)
                 .map(|html| Result::Ok(html.into_bytes()));
         let mut response = Response::from_stream(stream)?;
         response.headers_mut()

@@ -1,5 +1,4 @@
 use core::fmt::{ Debug, Formatter, Result };
-// use console_log::*;
 
 use worker::*;
 
@@ -64,15 +63,12 @@ fn extract_file_details(key: &worker::kv::Key) -> FileDetails {
     let (kv_file_name, kv_hash) = match file_name_hashed.rsplit_once('.') {
         None => {
             console_warn!("Unable to extract kv hash from file [{}]", key.name);
-            // return FileDetails::new(key.name.to_owned(), format!("{file_name_hashed}.{ext}"), Some(ext.to_owned()), None, None);
             return FileDetails::new(key.name.to_owned(), file_name_hashed.to_owned(), Some(ext.to_owned()), None, None);
         }
         Some(v) => v,
     };
     let (file_name, wp_hash) = match kv_file_name.rsplit_once('-') {
         None => {
-            // console_warn!("Unable to extract wp hash from file [{}]", key.name);
-            // return FileDetails::new(key.name.to_owned(), format!("{file_name_hashed}.{ext}"), Some(ext.to_owned()), Some(kv_hash.to_owned()), None);
             return FileDetails::new(key.name.to_owned(), kv_file_name.to_owned(), Some(ext.to_owned()), Some(kv_hash.to_owned()), None);
         }
         Some(v) => v,

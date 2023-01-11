@@ -17,14 +17,15 @@ pub fn Counter(
     view! { cx,
         <div>
             <button on:click=move |_| set_value(0)>"Clear"</button>
-            <button on:click=move |_| set_value.update(|value| {
+            <br /><button on:click=move |_| set_value.update(|value| {
                 *value -= step;
                 console::log_2(&"Dec".into(), &value.to_string().into());
             })>"-"{step}</button>
-            // <span>"Value: [" {move || value().to_string()} "]!"</span>
-            // <span>"Value: [" {move || value().to_string()} "]!"</span>
-            <span>"Value: [" {value} "]!"</span>
-            <button on:click=move |_| set_value.update(|value| {
+            <br /><span>"Value #1: [" {value} "]!"</span>
+            <br /><span>"Value #2: [" {value()} "]!"</span>
+            <br /><span>"Value #3: [" {move || value()} "]!"</span>
+            <br /><span>"Value #4: [" {move || value().to_string()} "]!"</span>
+            <br /><button on:click=move |_| set_value.update(|value| {
                 *value += step;
                 console::log_2(&"Inc".into(), &value.to_string().into());
             })>"+"{step}</button>

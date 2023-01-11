@@ -11,7 +11,8 @@ Wrangler is a cli tool for interacting with Cloudflare services:
 Build the client wasm and js bindings with wasm-pack:
 
 ```sh
-cd client && wasm-pack build --target=web
+cd client
+wasm-pack build --target=web
 ```
 
 # Server
@@ -24,5 +25,6 @@ command = "cargo install -q worker-build --version 0.0.7 && worker-build --relea
 ```
 
 ```sh
-cd cloudflare && wrangler dev
+cd cloudflare
+wrangler dev
 ```
