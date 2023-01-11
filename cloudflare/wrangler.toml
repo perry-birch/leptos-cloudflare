@@ -1,0 +1,13 @@
+name = "counter"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-01-06"
+
+[vars]
+WORKERS_RS_VERSION = "0.0.12"
+
+[build]
+command = "cargo install -q worker-build --version 0.0.7 && worker-build --release"
+
+[site]
+bucket = "../client"
+include = ["pkg"]

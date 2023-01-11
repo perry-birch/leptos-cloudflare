@@ -1,0 +1,23 @@
+[package]
+name = "cloudflare"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+app = { path = "../app" }
+
+console_error_panic_hook = "0.1"
+console_log = "0.2"
+leptos = { git = "https://github.com/gbj/leptos", default-features = false, features = [ "ssr" ] }
+leptos_dom = { git = "https://github.com/gbj/leptos", default-features = false, features = [ "ssr" ] }
+worker = "0.0.12"
+
+futures = "0.3"
+
+# ssr is defaulted into leptos already but this allows the
+# feature to be set for this lib directly if desired
+[features]
+ssr = []

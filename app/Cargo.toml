@@ -1,0 +1,11 @@
+[package]
+name = "app"
+authors = [""]
+edition = "2021"
+version = "0.1.0"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+leptos = { git = "https://github.com/gbj/leptos", default-features = false, features = [ "ssr" ] }
