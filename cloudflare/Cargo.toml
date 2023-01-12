@@ -7,7 +7,7 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-app = { path = "../app" }
+app = { path = "../app", default-features = false, features = [ "ssr" ] }
 
 console_error_panic_hook = "0.1"
 console_log = "0.2"

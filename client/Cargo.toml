@@ -7,22 +7,11 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-app = { path = "../app" }
+app = { path = "../app", default-features = false, features = [ "hydrate" ] }
 console_error_panic_hook = "0.1"
 console_log = "0.2"
 leptos = { git = "https://github.com/gbj/leptos", features = [ "hydrate" ] }
 log = "0.4"
-
-# Perhaps needed for client side bindings but doesn't seem to impact
-# [dependencies.web-sys]
-# version = "0.3.60"
-# features = [
-#   'Document',
-#   'Element',
-#   'HtmlElement',
-#   'Node',
-#   'Window',
-# ]
 
 # hydrate is defaulted into leptos already but this allows the
 # feature to be set for this lib directly if desired
