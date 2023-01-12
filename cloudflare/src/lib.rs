@@ -41,7 +41,8 @@ pub async fn main(req: Request, env: worker::Env, _ctx: worker::Context) -> Resu
         let stream =
             futures::stream::once(async move { head.clone() })
                 .chain(render_to_stream( 
-                    |cx| view! { cx,  <Counter initial_value=1 step=3 /> }.into_view(cx),
+                    // |cx| view! { cx,  <Counter initial_value=1 step=3 /> }.into_view(cx),
+                    |cx| view! { cx,  <App /> }.into_view(cx),
                 ))
                 .chain(futures::stream::once(async { tail.to_string() }))
                 .inspect(|html| println!("{html}"))

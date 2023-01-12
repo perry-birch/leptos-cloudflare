@@ -13,7 +13,8 @@ pub fn hydrate() {
     console::log_1(&"Preparing to mount client...".into());
 
     mount_to_body(|cx| {
-        view! { cx,  <Counter initial_value=1 step=3 /> }
+        // view! { cx,  <Counter initial_value=1 step=3 /> }
+        view! { cx,  <App /> }
     });
 
     // Alternate syntax but maybe from pre 0.1?
