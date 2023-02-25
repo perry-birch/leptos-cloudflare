@@ -1,15 +1,26 @@
 [package]
 name = "app"
-authors = [""]
+description = "Example Leptos app with components"
+repository = "https://github.com/perry-birch/leptos-cloudflare"
+license = "MIT"
+authors = ["Perry Birch <perrysd@gmail.com>"]
 edition = "2021"
-version = "0.1.0"
+version = "0.0.1"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-leptos = { git = "https://github.com/gbj/leptos", default-features = false }
+# Leptos latest
+leptos = { git = "https://github.com/leptos-rs/leptos", default-features = false }
 
+# Crates.io
+web-sys = "0.3.61"
+
+# Enable these features depending on the desired context
+# i.e. If rendering on the server use 'ssr' but if running the
+# client you'll want to enable 'hydrate' instead
+# * This example project uses these features
 [features]
 default = ["hydrate"]
 ssr = ["leptos/ssr"]

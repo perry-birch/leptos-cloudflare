@@ -1,21 +1,27 @@
 [package]
 name = "cloudflare"
-version = "0.0.0"
+description = "Example cloudflare worker"
+repository = "https://github.com/perry-birch/leptos-cloudflare"
+license = "MIT"
+authors = ["Perry Birch <perrysd@gmail.com>"]
 edition = "2021"
+version = "0.0.1"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-app = { path = "../app", default-features = false, features = [ "ssr" ] }
+# Local deps
+app = { workspace = true, default-features = false, features = [ "ssr" ] }
 
+# Leptos latest
+leptos = { git = "https://github.com/leptos-rs/leptos", default-features = false, features = [ "ssr" ] }
+
+# Crates.io
 console_error_panic_hook = "0.1"
 console_log = "0.2"
-leptos = { git = "https://github.com/gbj/leptos", default-features = false, features = [ "ssr" ] }
-leptos_dom = { git = "https://github.com/gbj/leptos", default-features = false, features = [ "ssr" ] }
-worker = "0.0.12"
-
 futures = "0.3"
+worker = "0.0.13"
 
 # ssr is defaulted into leptos already but this allows the
 # feature to be set for this lib directly if desired

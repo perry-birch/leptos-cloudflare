@@ -5,3 +5,6 @@ members = [
     "client",
     "cloudflare",
 ]
+
+[workspace.dependencies]
+app = { path = "./app", default-features = false, version = "0.0.1" }

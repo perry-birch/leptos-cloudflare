@@ -1,5 +1,5 @@
-use app::*;
-use leptos::*;
+use app::{App, AppProps};
+use leptos::{mount_to_body, view};
 
 use wasm_bindgen::prelude::wasm_bindgen;
 use web_sys::console;
@@ -13,12 +13,6 @@ pub fn hydrate() {
     console::log_1(&"Preparing to mount client...".into());
 
     mount_to_body(|cx| {
-        // view! { cx,  <Counter initial_value=1 step=3 /> }
-        view! { cx,  <App /> }
+        view! { cx, <App /> }
     });
-
-    // Alternate syntax but maybe from pre 0.1?
-    // leptos::hydrate(body().unwrap(), move |cx| {
-    //     view! { cx, <Counter initial_value=1 step=3 /> }
-    // })
 }
