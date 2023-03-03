@@ -1,0 +1,16 @@
+[template]
+# without this, the {{ hydrate }} string gets replaced with an empty string.
+# There may be a better way to do this, but this does work. Once there is a
+# real use for templating in this file, another solution may be
+# something like
+# let hydrate = "{ hydrate }";
+# format!("/* */ {hydrate}")
+# suggested from gbj.
+exclude = ["cloudflare/src/lib.rs"]
+
+ignore = [ 
+    "Cargo.lock",
+    "target",
+    "cloudflare/build",
+    "client/pkg"
+]
