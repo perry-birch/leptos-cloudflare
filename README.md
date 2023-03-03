@@ -43,3 +43,10 @@ Move into the cloudflare directory and run 'wrangler dev' to launch the worker l
 cd cloudflare
 wrangler dev
 ```
+
+If this fails with `[mf:err] Unhandled Promise Rejection: Error: To use the new ReadableStream() constructor, enable the streams_enable_constructors feature flag.` 
+then run this instead:
+```sh
+cd cloudflare
+wrangler dev --compatibility-flag streams_enable_constructors
+```
