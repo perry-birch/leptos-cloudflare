@@ -15,15 +15,23 @@ crate-type = ["cdylib", "rlib"]
 app = { workspace = true, default-features = false, features = [ "ssr" ] }
 
 # Leptos latest
-leptos = { git = "https://github.com/leptos-rs/leptos", default-features = false, features = [ "ssr" ] }
+# leptos = { git = "https://github.com/leptos-rs/leptos", default-features = false, features = [ "ssr" ] }
+leptos = { workspace = true, features = [ "ssr" ] }
 
 # Crates.io
 console_error_panic_hook = "0.1"
-console_log = "0.2"
+console_log = "1.0"
 futures = "0.3"
-worker = "0.0.13"
+worker = "0.0.16"
 
 # ssr is defaulted into leptos already but this allows the
 # feature to be set for this lib directly if desired
 [features]
 ssr = []
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false

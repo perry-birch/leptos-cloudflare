@@ -8,3 +8,5 @@ members = [
 
 [workspace.dependencies]
 app = { path = "./app", default-features = false, version = "0.0.1" }
+
+leptos = { git = "https://github.com/leptos-rs/leptos", default-features=false }

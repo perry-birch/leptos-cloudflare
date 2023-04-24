@@ -11,8 +11,7 @@ version = "0.0.1"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-# Leptos latest
-leptos = { git = "https://github.com/leptos-rs/leptos", default-features = false }
+leptos = { workspace = true }
 
 # Crates.io
 web-sys = "0.3.61"

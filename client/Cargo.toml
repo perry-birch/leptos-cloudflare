@@ -15,11 +15,11 @@ crate-type = ["cdylib", "rlib"]
 app = { workspace = true, default-features = false, features = [ "hydrate" ] }
 
 # Leptos latest
-leptos = { git = "https://github.com/leptos-rs/leptos", features = [ "hydrate" ] }
+leptos = { workspace = true, features = [ "hydrate" ] }
 
 # Crates.io
 console_error_panic_hook = "0.1"
-console_log = "0.2"
+console_log = "1.0"
 log = "0.4"
 wasm-bindgen = "0.2.84"
 web-sys = "0.3.61"
